@@ -306,7 +306,7 @@ border-bottom:2px solid #8cc013
 margin:0 3px!important
 }
 
-img,div,a,ul,li,* {
+img,div,a,ul,li,h1 {
 outline:0 none!important;
 outline-style:none!important;
 box-shadow:none!important;
@@ -330,6 +330,7 @@ touch-callout: none !important;
 -moz-user-drag: none !important;
 -ms-user-drag: none !important;
 user-drag: none !important;
+
 }
 
 .ui-icon-loading {
