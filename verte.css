@@ -306,7 +306,7 @@ border-bottom:2px solid #8cc013
 margin:0 3px!important
 }
 
-img,div,a,ul,li {
+img,div,a,ul,li,* {
 outline:0 none!important;
 outline-style:none!important;
 box-shadow:none!important;
@@ -321,7 +321,15 @@ text-overflow:ellipsis!important;
 -o-user-select:none!important;
 -webkit-touch-callout:none!important;
 -ms-user-select:none!important;
--khtml-user-select:none!important
+-khtml-user-select:none!important;
+-webkit-touch-callout: none !important;
+-moz-touch-callout: none !important;
+-ms-touch-callout: none !important;
+touch-callout: none !important;
+-webkit-user-drag: none !important;
+-moz-user-drag: none !important;
+-ms-user-drag: none !important;
+user-drag: none !important;
 }
 
 .ui-icon-loading {
