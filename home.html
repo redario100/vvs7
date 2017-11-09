@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=2">
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <style>
+/* cyrillic */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Exo 2 Light'), local('Exo2-Light'), url(ert.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Exo 2 Light'), local('Exo2-Light'), url(gft.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Exo 2 Light'), local('Exo2-Light'), url(mima.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+</style>
+<link rel="stylesheet" href="./jquery.mobile-1.4.5.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Courgette|Jaldi" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="flaticon.css"> 
+<link rel="stylesheet" href="verte.min.css" />
+<link rel="stylesheet" href="verte.css" />
+<script src="./jquery-1.11.1.min.js"></script>
+<script src="./jquery.mobile-1.4.5.min.js"></script>
+<script>
+
+$(document).bind("mobileinit", function(){
+   // $.mobile.page.prototype.options.domCache = true;
+});
+
+
+$( document ).ready(function() {
+
+
+
+  $.ajax({
+         data: "afficheservice=ok",
+         type: "post",
+         url: "http://labseo.net/hamza/userinsert.php",
+		
+   beforeSend: function()
+    {
+	 $('#reda').html("");
+    $('#jiji').show();
+    },
+    success: function(data)
+    {
+$('#reda').hide();
+
+        $('#reda').html(data);
+		$('#reda').fadeIn();
+	 $('#jiji').hide();
+		
+    },
+    error: function()
+    {
+        $('#reda').html('error');
+    }
+});
+
+});
+
+function affiche1(q)
+{
+ $.ajax({
+         data: "affichesservice="+q,
+         type: "post",
+         url: "http://labseo.net/hamza/userinsert.php",
+		
+   beforeSend: function()
+    {
+	$('#contentpage2').html("");
+           $('#jiji').show();
+    },
+    success: function(data)
+    {
+	$('#contentpage2').hide();
+	$('#contentpage2').html(data);
+	$('#contentpage2').fadeIn();
+    $('#jiji').hide();
+    },
+    error: function()
+    {
+        $('#contentpage2').html('error');
+    }
+});
+
+}
+
+
+function affiche111(q)
+{
+ $.ajax({
+         data: "affichesservice111="+q,
+         type: "post",
+         url: "http://labseo.net/hamza/userinsert.php",
+		
+   beforeSend: function()
+    {
+	$('#contentpage222').html("");
+           $('#jiji').show();
+    },
+    success: function(data)
+    {
+	$('#contentpage222').hide();
+	$('#contentpage222').html(data);
+	$('#contentpage222').fadeIn();
+    $('#jiji').hide();
+    },
+    error: function()
+    {
+        $('#contentpage222').html('error');
+    }
+});
+
+}
+
+function affiche11(q)
+{
+ $.ajax({
+         data: "affichesservice1="+q,
+         type: "post",
+         url: "http://labseo.net/hamza/userinsert.php",
+		
+   beforeSend: function()
+    {
+	$('#contentpagepromo').html("");
+           $('#jiji').show();
+    },
+    success: function(data)
+    {
+	$('#contentpagepromo').hide();
+	$('#contentpagepromo').html(data);
+	$('#contentpagepromo').fadeIn();
+    $('#jiji').hide();
+    },
+    error: function()
+    {
+        $('#contentpagepromo').html('error');
+    }
+});
+
+}
+
+function addtocart(aa, a,b,c)
+{
+$('#idproduct').val(aa);
+$('.imgpanier2').html("<img class='imgpanier' src="+a+">");
+$('.titrepanier').html(b);
+var k=$('#pilo'+aa).html();
+$('.descrippanier').html(k);
+//$('.descrippanier').html("Lorum ipsum bener de agio Lorum ipsum bener de agio Lorum ipsum bener de agio");
+$('.prixpanier').html(c+" DH");
+$('.backgrn').show();
+$('#pilo').show();
+setTimeout(function(){ 
+$('#pilo').addClass('bghyn2');
+ }, 200);
+
+
+
+
+}
+
+function hideall()
+{
+$('#pilo').removeClass('bghyn2');
+setTimeout(function(){ 
+$('.backgrn').hide();
+ document.getElementById("valqt").value = '1';
+ }, 200);
+}
+
+function plusqt()
+{
+  var num1 = parseInt(document.getElementById("valqt").value);
+
+        document.getElementById("valqt").value = num1 + 1;
+}
+
+function moinqt()
+{
+
+  var num1 = parseInt(document.getElementById("valqt").value);
+
+        document.getElementById("valqt").value = num1 - 1;
+}
+
+function affichepanier()
+{
+
+
+$.ajax({
+
+         data: "lepanier=ok",
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+    },
+    success: function(data)
+    {
+
+ $('#jiji').hide();
+$('#monpanier2').html(data);
+   
+ 
+    },
+    error: function()
+    {
+        $('#monpanier2').html('error');
+    }
+});
+
+}
+
+function modifier()
+{
+var iduser=$("#iduser").val();
+var nom = $( "#nom" ).val();
+var email = $( "#email" ).val();
+var password = $( "#password" ).val();
+var tel = $( "#tel" ).val();
+var nomresidence = $( "#popo" ).val();
+var choixbien = $( "#choixbien" ).val();
+var numimmeuble = $( "#emailo" ).val();
+var numvillaappart = $( "#nappart" ).val();
+var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+
+if( !nom ) 
+{
+$('#nom').addClass('alerte');
+}
+	
+
+if (!pattern.test(email) ||  !email)
+{
+ $('#email').addClass('alerte');
+}
+
+if (!password)
+{
+ $('#password').addClass('alerte');
+}
+
+if (!tel)
+{
+ $('#tel').addClass('alerte');
+}
+if (!nomresidence)
+{
+ $('#choixc').addClass('alerte2');
+}
+
+	else
+	{
+
+		 $('#jiji').show();
+  $.ajax({
+         data: "modif_user=ok&nomw="+nom+"&iduser="+iduser+"&emailw="+email+"&passwordw="+password+"&telw="+tel+"&nomresidencew="+nomresidence+"&choixbienw="+choixbien+"&numimmeublew="+numimmeuble+"&numvillaappartw="+numvillaappart,
+         type: "post",
+         url: "http://labseo.net/hamza/userinsert.php",
+         success: function(data){
+		$('#jiji').hide();
+		var jj=data.trim();
+		if(jj=="ok")
+		{  
+		$('.pano1').show();
+		$('.pano2').show();
+		}
+         }
+});
+}
+}
+
+
+function ajouterpanier()
+{
+var a=$("#idproduct").val();
+var b=$("#valqt").val();
+var j=$('.countpanier').html();
+var g=$('.prixpanier').html();
+var res = g.replace(" DH", "");
+var k=parseInt(j)+1;
+$("#countpanier1").html(k);
+$("#countpanier2").html(k);
+$("#countpanier222").html(k);
+$("#countpanier3").html(k);
+$("#countpanier4").html(k);
+$("#countpanier5").html(k);
+
+$.ajax({
+
+         data: "ajouteraupanier=ok&idproduct="+a+"&valqt="+b+"&finalo="+res,
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+	
+    },
+    success: function(data)
+    {
+	$('#pilo').removeClass('bghyn2');
+setTimeout(function(){ 
+$('.backgrn').hide();
+ $('#jiji').hide();
+ document.getElementById("valqt").value = '1';
+ }, 400);
+   
+ 
+    },
+    error: function()
+    {
+        $('#contentpage2').html('error');
+    }
+});
+}
+
+function loadpanier()
+{
+var panier="panier1";
+var client="174";
+$.ajax({
+
+         data: "loadpanier=ok&panier="+panier+"&client="+client,
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+	
+    },
+    success: function(data)
+    {
+$("#countpanier1").html(data);
+$("#countpanier2").html(data);
+$("#countpanier3").html(data);
+$("#countpanier4").html(data);
+$("#countpanier5").html(data);
+ $('#jiji').hide();
+
+
+
+   
+ 
+    },
+    error: function()
+    {
+        $('#contentpage2').html('error');
+    }
+});
+}
+function checkalerte(h)
+{
+ document.getElementById("vivo").value = h;
+$('.pano').show();
+$('.pano1').show();
+}
+function checkalertehide()
+{
+ document.getElementById("vivo").value = "";
+$('.pano').hide();
+$('.pano1').hide();
+}
+function supprimpanier()
+{
+var h=$("#vivo").val();
+$.ajax({
+
+         data: "supppanier="+h,
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+    },
+    success: function(data)
+    {
+	$('#jiji').hide();
+	$('.pr'+h).fadeOut();
+	$('.pano').hide();
+$('.pano1').hide();
+affichepanier();
+var j=$('.countpanier').html();
+var k=parseInt(j)-1;
+$("#countpanier1").html(k);
+$("#countpanier2").html(k);
+$("#countpanier3").html(k);
+$("#countpanier4").html(k);
+$("#countpanier5").html(k);
+    },
+    error: function()
+    {
+    
+    }
+});
+}
+
+function getuserinfo(h)
+{
+
+$.ajax({
+
+         data: "getuserinfo="+h,
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+    },
+    success: function(data)
+    {
+
+	
+$('#getuserinfox').html(data);
+
+	$('#jiji').hide();
+    },
+    error: function()
+    {
+    
+    }
+});
+}
+
+function jecommande(a,b)
+{
+$.ajax({
+
+         data: "jecommande=ok&total="+a+"&livraison="+b+"&client=reda1&panier=panier1",
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+    },
+    success: function(data)
+    {
+
+	$('#jiji').hide();
+
+	$('.pano1').show();
+	$('.pano3').show();
+	loadpanier();
+	affichepanier();
+	
+    },
+    error: function()
+    {
+    
+    }
+});
+}
+
+function mescommandes(a)
+{
+$.ajax({
+
+         data: "mescommandes=ok&panier="+a,
+         type: "post",
+         url:  "http://labseo.net/hamza/userinsert.php",
+		
+    beforeSend: function()
+    {
+	 $('#jiji').show();
+    },
+    success: function(data)
+    {
+
+	$('#jiji').hide();
+$('#listedemescommandes').html(data);
+	
+    },
+    error: function()
+    {
+    
+    }
+});
+}
+
+function biza(k)
+{
+}
+
+function choixbien(b,k)
+{
+if(b=='reda1')
+{
+$(".reda1").addClass("bgbg");
+$(".reda2").removeClass("bgbg");
+$( "#choixbien" ).val(k);
+$("#numero1").fadeIn();
+$("#numero2").fadeIn();
+
+
+}
+else
+{
+$(".reda1").removeClass("bgbg");
+$(".reda2").addClass("bgbg");
+$( "#choixbien" ).val(k);
+$("#numero1").hide();
+$("#numero2").fadeIn();
+}
+}
+
+</script>
+<style>
+label
+{
+border:none !important;
+}
+</style>
+</head>
+<body onload="loadpanier();getuserinfo('profesionel.reda@gmail.com')">
+<div onclick="$('.pano1').hide();$('.pano').hide();$('.pano2').hide();$('.pano3').hide();"  class="pano1">
+</div>
+<div class="pano">
+<div style="font-size: 18px;padding-bottom: 9px;border-bottom: 1px solid #5f5e5e !important;">Message</div><br/>
+<input type="hidden" id="vivo" value="">
+Etes-vous sûr de vouloir supprimer ce produit ?
+</br></br>
+<div onclick="supprimpanier()" class="buttonx">Valider</div><div onclick="checkalertehide()" class="buttonx">Annuler</div>
+</div>
+
+<div class="pano2">
+Modification Réussie !
+<div style="margin-top:23px;" onclick="$('.pano1').hide();$('.pano2').hide();" class="buttonx">Ok</div>
+</div>
+
+<div class="pano3">
+Votre Commande a été envoyé, vous allez recevoir une réponse dans quelques instant!
+<div style="margin-top:23px;" onclick="$('.pano1').hide();$('.pano3').hide();" class="buttonx">Ok</div>
+</div>
+<div onclick="hideall()" class="backgrn"></div>
+<div id="pilo" class="bghyn">
+<div class="ajouterpan">Commander</div>
+<input type="hidden" value="" id="idproduct">
+<div class="imgpanier2"><img class="imgpanier" src="http://labseo.net/villeverte/upload/BByaixgpressing.png"> </div>
+<div style="top:8px;position:relative;float:left;width:170px;">
+<div class="titrepanier"></div>
+<div class="descrippanier"></div>
+<div class="prixpanier"></div>
+</div>
+<div class="addpanierqt">
+<div onclick="moinqt()" style="border-top-left-radius: 5px;border-bottom-left-radius: 5px;" class="btqt"><img style="width:100%;" src="minus.png"></div>
+<div   class="inptqt"><input type="text" value="1" id="valqt" class="hjk" ></input></div>
+<div onclick="plusqt()" style="border-top-right-radius: 5px;border-bottom-right-radius: 5px;" class="btqt"><img style="width:100%;" src="plis.png"></div>
+
+</div>
+	<div onclick="ajouterpanier()" style="margin-top:20px;margin-bottom:8px;float:left;" class="swiper-button-next activeo btsuivant33 tti2">
+			<i class="flaticon-success"></i> Ajouter au Panier <span class="glyphicon glyphicon-menu-right"></span>
+			</div>
+</div>
+<!--data-dom-cache="true"-->
+<div id="jiji"><img style="width:40px;border-radius:100px;" src="loader.gif"></div>
+<div id="page1"  data-role="page">
+<div data-role="panel" id="left-panel"  data-position-fixed="true" > <!--data-display="overlay"-->
+<ul data-role="listview" class="ui-listview">
+<li data-role="list-divider" role="heading" class="menuleft ui-li ui-li-divider ui-bar-d ui-first-child">Menu</li>
+					<a data-transition="slide" href="#profil"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="user.png"> Mon Profil</div></div></li></a>
+					<a data-transition="slide" onclick="mescommandes('panier1')" href="#listedecommande"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx "><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="shopping.png"> Mes Commandes</div></div></li></a>
+					<a data-transition="slide" onclick="affiche11('35')" href="#nouveautes"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="percentage.png">  Promotions</div></div></li></a>
+					<a data-transition="slide" onclick="affiche11('36')" href="#nouveautes"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="badge.png"> Nouveautés </div></div></li></a>
+					<a data-transition="slide" href="#Contacteznous"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="bubble.png"> Contact</div></div></li></a>
+					<a data-transition="slide" href="#apropos"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="infos.png"> A Propos</div></div></li></a>
+					<a data-transition="slide" href="#condition"><li data-corners="false" data-shadow="false"  data-wrapperels="div" data-theme="d" class="bnx"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><img class="bora" src="tache.png"> Conditions d'utilisation</div></div></li></a>
+				</ul>   
+
+
+   </div> 
+	<div style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+	<a href="#left-panel" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" src="menu.png"></a>
+		<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><div id="countpanier1" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	</div><!-- /header -->
+<!--data-dom-cache="true"-->
+<div id="reda" data-role="content">
+
+</div>
+	
+
+</div><!-- /page -->
+
+<!--page2-->
+<!--data-dom-cache="true"-->
+<div data-role="page" id="page2">
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+	<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+	<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+	<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><div id="countpanier2" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	
+	</div><!-- /header -->
+
+	<div id="contentpage2" data-dom-cache="true" data-role="content">
+	
+	</div><!-- /content -->
+
+</div>
+
+
+<div data-role="page" id="page222">
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+	<a data-transition="slide" data-direction="reverse" href="#page2" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+	<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+	<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><div id="countpanier222" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	
+	</div><!-- /header -->
+
+	<div id="contentpage222" data-dom-cache="true" data-role="content">
+	
+	</div><!-- /content -->
+
+</div>
+
+<!--Profil-->
+<div data-role="page" style="background-color:white;" id="profil">
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+	</div><!-- /header -->
+
+	<div id="contentpage3" data-dom-cache="true" data-role="content">
+	<div role="main" style="text-align:left;'Exo 2', sans-serif !important" class="ui-content">
+			<div id="getuserinfox" style="position:absolute;width:100%;height:100%;left:0;right:0;margin-left:auto;margin-right:auto;color:gray;font-size:15px;text-align:center;">
+
+			</div>
+	</div>
+	</div><!-- /content -->
+
+</div>
+
+
+<!--condition dutilisation-->
+
+<div data-role="page" style="background-color:white;" id="condition">
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" src="buy.png"></a>
+	
+	</div><!-- /header -->
+
+	<div id="contentpage4" data-dom-cache="true" style="font-family:'Exo 2', sans-serif;text-align:justify;" data-role="content">
+<span style="color:#9cd307;font-weight:bold;">1. Objet</span><br/>
+Les présentes conditions générales de vente s'appliquent à toutes les ventes conclues par le biais du site lad et sont modifiables à tout moment sans préavis. Tout client peut prendre connaissance des CGV à partir de toutes les pages du Site. Les CGV sont applicables sans restriction ni réserve à l’ensemble des Articles proposés à la vente sur le Site. Toute Commande sur le Site est conditionnée par la consultation et l’acceptation préalables et sans réserve de la part du Client des présentes CGV et des tarifs applicables. Les présentes CGV prévalent sur tout autre document. Les tarifs sont expressément agréés et acceptées par le client, qui déclare et reconnaît en avoir une parfaite connaissance, et renonce, de ce fait, à se prévaloir de tout document contradictoire et, notamment, ses propres conditions générales d'achat, l'acte d'achat entraînant acceptation des présentes conditions générales de vente.<br/>
+<br/>
+<span style="color:#9cd307;font-weight:bold;">2. Définition</span><br/>
+Article : Produits de toute nature proposés à la vente sur le Site. Client : personne physique non commerçante réalisant la Commande, et détenant la pleine capacité juridique. Commande : engagement d’achat de l’ensemble des Articles sélectionnés par le Client via le service de commerce électronique du Site. Site : site web édité par lad et accessible à l’adresse www.lad.ma Restaurant partenaire : tout restaurant partenaire figure dans le site LAD.ma
+<br/></br>
+<span style="color:#9cd307;font-weight:bold;">3. Caractéristiques des biens et services proposes</span><br/>
+Les produits et services offerts sont ceux qui figurent dans le catalogue publié dans le site de lad. Chaque Article est accompagné d'un descriptif établi par le restaurant partenaire; Le client peut avoir accès à la Carte du restaurant partenaire.
+<br/></br>
+<span style="color:#9cd307;font-weight:bold;">4. Tarifs</span><br/>
+Les prix figurant dans le site sont des prix TTC en Dh. Nos restaurant partenaires se réservent de modifier leurs prix à tout moment, étant toutefois entendu que le prix figurant au catalogue le jour de la commande sera le seul applicable au client. Les prix indiqués comprennent les frais de traitement de commandes, de transport et de livraison pour autant qu'elles aient lieu dans les zones géographiques pour chaque restaurant partenaire
+	</div><!-- /content -->
+
+</div>
+
+<!--a propos-->
+<div data-role="page" style="background-color:white;" id="apropos">
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" src="buy.png"></a>
+	
+	</div><!-- /header -->
+
+	<div id="contentpage5" data-dom-cache="true" style="font-family:'Exo 2', sans-serif;text-align:justify;" data-role="content">
+<span style="color:#9cd307;font-weight:bold;">A Propos</span><br/>
+<strong><i>Nous souhaitons transformer la façon de consommer.</i></strong></br></br>
+
+En effet en 2016, nous faisons face à un gaspillage de masse qui est le résultat naturel de l’économie actuelle basée sur l’offre. Un maximum d’entreprises proposent des produits et services similaires en essayant de « manipuler » les populations afin de créer un besoin.
+</br></br>
+Nous avons décidé de changer les choses.</br></br>
+
+Notre mission est d’être la principale infrastructure de l’économie de la demande pour toutes les grandes villes dans le monde.</br></br>
+
+Avec une plate-forme révolutionnaire qui relie des demandeurs à des personnes qui peuvent offrir ce que la personne demande. Que ce soit la livraison d’un plat d’un restaurant à la réservation d’un voyage en passant par la réservation d’un baby-sitter pour le soir même. Nous permettons de réaliser un gain de temps considérable à l’ensemble de la population, ainsi qu’une augmentation du pouvoir d’achat.
+</div><!-- /content -->
+
+</div>
+
+
+<div data-role="page" style="background-color:white;" id="nouveautes">
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><div id="countpanier4" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	
+	</div><!-- /header -->
+<div class="txtpromo" style="font-size:18px;float:left;width:100%;">Nouveautés </div>
+	<div id="contentpagepromo" data-dom-cache="true" style="font-family:'Exo 2', sans-serif;text-align:justify;" data-role="content">
+	
+	</div><!-- /content -->
+
+</div>
+
+
+
+
+
+
+
+<div data-role="page" style="background-color:white;" id="details">
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><div id="countpanier5" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	
+	</div><!-- /header -->
+	<div id="contentpage5" data-dom-cache="true" style="padding:0 !important;font-family:'Exo 2', sans-serif;text-align:justify;" data-role="content">
+	
+<div class="promotionb2">
+<img style="width:100%;" src="exc2.jpg">
+</div>
+
+	</div><!-- /content -->
+
+</div>
+
+
+
+
+<div data-role="page" style="background-color:white;" id="Contacteznous">
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+	</div><!-- /header -->
+
+	<div id="contentpage6" style="text-align:left;font-family:'Exo 2', sans-serif !important" data-dom-cache="true" data-role="content">
+	<div role="main" class="ui-content">
+	<span style="color:#9cd307;font-weight:bold;">CONTACTEZ-NOUS</span><br/>
+	Pour toutes vos questions ou suggestions merci de nous contactez via ce formulaire. Nous traiterons votre demande dans le plus bref délai.<br/><br/>
+	<div class="jelly-form" style="width:100%;margin-top:5px !important;">
+	<label>Objet du Message</label>
+    <input type="text" id="nom"  style="border-radius:0px !important;" placeholder="">
+</div>
+
+
+<div class="jelly-form" style="width:100%">
+	<label>Votre Message</label>
+    <textarea type="text" id="adresse" style="border-radius:0px !important;" placeholder=""></textarea>
+</div>
+
+			<div style="text-align:center;margin-left:auto;margin-right:auto;width:100%;left:0;right:0;">
+	<div style="margin-top:20px;margin-bottom:8px;" class="swiper-button-next activeo btsuivant2 tti2">
+			<i class="flaticon-success"></i> Envoyer <span class="glyphicon glyphicon-menu-right"></span>
+			</div>
+		</div>
+	</div>
+	</div><!-- /content -->
+
+</div>
+
+
+
+
+
+
+<div data-role="page" style="background-color:white;" id="lepanier">
+
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg ui-link ui-btn-right ui-btn ui-btn-d ui-corner-all" data-iconshadow="false" data-role="button" role="button"><div id="countpanier3" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	</div><!-- /header -->
+
+	<div id="contentpage6" style="text-align:left;padding:0 !important;font-family:'Exo 2', sans-serif !important" data-dom-cache="true" data-role="content">
+	<div role="main" style="padding:0 !important;" id="monpanier2" class="ui-content">
+
+	</div>
+	</div><!-- /content -->
+
+</div>
+
+<div data-role="page" style="background-color:white;" id="listedecommande">
+
+
+	<div  style='padding:10px 0px !important;' data-position="fixed" data-role="header">
+		<a data-transition="slide" data-direction="reverse" href="#page1" data-theme="d"  data-iconpos="notext" data-shadow="false" class="hidebg" data-iconshadow="false"><img class="imgbt" style="vertical-align: middle;width: 24px !important;color: white;margin-top: 7px !important;" src="retour.png"> <span style="font-size: 16px;color: white;vertical-align:-5px;">Retour</span></a>
+			<h1 style="font-family: 'Kaushan Script', cursive !important;font-size:23px;padding:0.35em 0 !important;">La Ville Verte</h1>
+			<a href="#lepanier" onclick="affichepanier()" data-transition="slide" data-theme="d" data-iconpos="notext" data-shadow="false" class="hidebg ui-link ui-btn-right ui-btn ui-btn-d ui-corner-all" data-iconshadow="false" data-role="button" role="button"><div id="countpanier3" class="countpanier">0</div><img class="imgbt" src="buy.png"></a>
+	</div><!-- /header -->
+
+	<div id="listedemescommandes" style="text-align:left;padding:0 !important;font-family:'Exo 2', sans-serif !important" data-dom-cache="true" data-role="content">
+	<div role="main" style="padding:0 !important;" id="monpanier2" class="ui-content">
+
+	</div>
+	</div><!-- /content -->
+
+</div>
+
+</body>
+</html>

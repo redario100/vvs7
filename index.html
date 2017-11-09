@@ -1,0 +1,474 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>reclamation maroc</title>
+    <!-- Link Swiper's CSS -->
+	 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	 <!--<link href="https://fonts.googleapis.com/css?family=Ruluko" rel="stylesheet">-->
+	<!--<link rel="stylesheet" type="text/css" href="//www.fontstatic.com/f=jazeera-light" />-->
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Courgette|Jaldi" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Exo+2:300" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="flaticon.css"> 
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<script src="./js/jquery-1.11.1.min.js"></script>
+	
+
+
+
+<link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="verte.min.css" />
+<link rel="stylesheet" href="verte.css" />
+
+
+
+	<body>
+
+	<script>
+
+function choixbien(b,k)
+{
+if(b=='reda1')
+{
+$(".reda1").addClass("bgbg");
+$(".reda2").removeClass("bgbg");
+$( "#choixbien" ).val(k);
+var offsets = $('.reda1').offset();
+var top = offsets.top;
+setTimeout(function() {
+jQuery('#page3').animate({scrollTop: top+1000}, 10);
+}, 200); 
+$("#numero1").fadeIn();
+$("#numero2").fadeIn();
+
+
+}
+else
+{
+$(".reda1").removeClass("bgbg");
+$(".reda2").addClass("bgbg");
+$( "#choixbien" ).val(k);
+var offsets = $('.reda1').offset();
+var top = offsets.top;
+setTimeout(function() {
+jQuery('#page3').animate({scrollTop: top+1000}, 10);
+}, 200); 
+$("#numero1").hide();
+$("#numero2").fadeIn();
+}
+}	
+
+
+
+function biza(k)
+{
+var offsets = $('#'+k).offset();
+var top = offsets.top;
+jQuery('#page3').animate({scrollTop: top-50}, 10);
+}
+
+
+function biza2(k)
+{
+var offsets = $('#'+k).offset();
+var top = offsets.top;
+setTimeout(function() {
+jQuery('#page3').animate({scrollTop: top+400}, 10);
+}, 200);    
+}
+
+
+function opp()
+{
+$('#loadert').show();  
+setTimeout(function(){
+      $.ajax({
+   type: "GET",
+   url: "index.html",
+   success: function(msg){
+   var v=localStorage.getItem("setlang");
+   
+   window.HTMLOUT.setlangue1(v);
+   if (v == 'fr')
+   document.location.href='index.html';
+   else
+   document.location.href='index-ar.html';
+   
+
+    e.preventDefault();
+   },
+   error: function() { 
+  $('#loadert').hide();
+  
+   window.HTMLOUT.msgerreur();
+   
+   }
+   
+   
+ });
+	 
+  
+}, 800);
+
+}
+
+
+
+function config(s)
+{
+localStorage.setItem('setlang', s);
+if (s=='fr')
+{
+$('#page1fr').css("display","block");
+$('#page2fr').css("display","block");
+$('#page1ar').css("display","none");
+$('#page2ar').css("display","none");
+}
+else
+{
+$('#page1ar').css("display","block");
+$('#page2ar').css("display","block");
+$('#page1fr').css("display","none");
+$('#page2fr').css("display","none");
+}
+}
+//document.addEventListener("deviceready", onDeviceReady, false);
+
+$( document ).ready(function() {
+$( "#nom" ).keyup(function() {
+     $('#nom').removeClass('alerte');
+});
+$( "#email" ).keyup(function() {
+     $('#email').removeClass('alerte');
+});
+$( "#password" ).keyup(function() {
+     $('#password').removeClass('alerte');
+});
+$( "#tel" ).keyup(function() {
+     $('#tel').removeClass('alerte');
+});
+$( "#how-friend, #how-internet, #how-other, #how-other2" ).click(function() {
+ $('#choixc').removeClass('alerte2');
+});
+
+});
+
+function ajouter()
+{
+var nom = $( "#nom" ).val();
+var email = $( "#email" ).val();
+var password = $( "#password" ).val();
+var tel = $( "#tel" ).val();
+var nomresidence = $( "#popo" ).val();
+var choixbien = $( "#choixbien" ).val();
+var numimmeuble = $( "#emailo" ).val();
+var numvillaappart = $( "#nappart" ).val();
+var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+
+if( !nom ) {
+          $('#nom').addClass('alerte');
+    }
+	
+
+if (!pattern.test(email) ||  !email)
+{
+ $('#email').addClass('alerte');
+}
+
+if (!password)
+{
+ $('#password').addClass('alerte');
+}
+
+if (!tel)
+{
+ $('#tel').addClass('alerte');
+}
+if (!nomresidence)
+{
+ $('#choixc').addClass('alerte2');
+}
+
+	else
+	{
+  $.ajax({
+         data: "ajout_user=ok&nomw="+nom+"&emailw="+email+"&passwordw="+password+"&telw="+tel+"&nomresidencew="+nomresidence+"&choixbienw="+choixbien+"&numimmeublew="+numimmeuble+"&numvillaappartw="+numvillaappart,
+         type: "post",
+         url: "http://labseo.net/hamza/userinsert.php",
+         success: function(data){
+         $('#bg1').show();
+		 $('.loader').show();
+		 $('#bibik').html(data);
+var jj=data.trim();
+if(jj=="ok"){  
+		 setTimeout(function(){
+$( "#nom" ).val("");
+$( "#email" ).val("");
+$( "#password" ).val("");
+$( "#tel" ).val("");
+$( "#popo" ).val("");
+$( "#choixbien" ).val("");
+$( "#emailo" ).val("");
+$( "#nappart" ).val("");
+ localStorage.setItem('validation', 'ok');
+document.location.href='home.html';
+
+
+
+}, 1500);
+}
+         }
+});
+}
+}
+
+
+function testo()
+{  
+//window.localStorage.removeItem("validation");  localStorage.clear();
+if (localStorage.getItem('validation') == null) {
+return false;
+}
+else
+{
+document.location.href='home.html';
+}
+
+
+
+}
+
+	</script>
+	</body>
+	</head>
+	
+	<body  onload="testo()" id="content">
+	<div id="bg1" style="display:none;position: fixed;width: 100%;height: 100%;z-index: 999;"></div>
+	<img class="loader" src="loader.gif">
+	<img id="loadert" class="loaderia" src="images/ring-alt.gif">
+	<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div style="background:url('image1.jpg') no-repeat 50%;width:100%;height:100%;background-size:cover;margin:0;" onclick="" class="swiper-slide">
+			
+			
+			<div  class="bgcontain">
+			<div class="logo"><img style="width:100px;margin-bottom:20px;margin-left:20px;" class="imglogo" src="logoville2.png"><br/>
+			<span style="font-size: 32px;font-family: 'Kaushan Script', cursive, cursive;line-height:30px;text-shadow:0 1px 0 black;">La Ville Verte</span><br/>
+			<span style="font-size: 16px;font-family: 'Kaushan Script', cursive, cursive;line-height:30px;">Services</span>
+			</div>
+				<br/>
+			<span class="tti">Une nouvelle manière de se faire plaisir</span><br/>
+			<br/>
+			<div style="left:0;text-align:center;width:100%;">
+			<div style="margin-top:20px;" class="swiper-button-next activeo btsuivant tti2" onclick="config('fr')">
+			Suivant <i class="flaticon-right-arrow-circular-button"></i>
+			</div>
+		
+			</div>
+			<!--<div style="background:none;" class="swiper-button-next">Français</div>-->
+			</div>
+			
+	
+			</div>
+			
+			 <div id="page1" style="background:url('image2.jpg') no-repeat 50%;width:100%;height:100%;background-size:cover;margin:0;" onclick="" class="swiper-slide">
+			
+			
+			<div class="bgcontain2">
+			<div style="background:url('like.png') no-repeat 50%; width:90px;left:0;right:0;margin-left:auto;margin-right:auto;height:90px;background-size:90px;padding:8px;"></div>
+				<div id="page1fr" style="margin-top:20px;font-family: 'Kaushan Script'">
+<span style="font-size: 32px;font-family: 'Kaushan Script', cursive, cursive;line-height:16px;text-shadow:0 1px 0 black;">Qui Sommes Nous</span>
+			
+			
+			<br/>	
+			<br/>
+<span class="tti">Un nouveau service pour accomplir vos désirs. <br/>
+Nous sommes venu pour vous servir!</span>
+<br/>
+<div style="margin-top:20px;" class="swiper-button-next activeo btsuivant tti2">
+			Suivant <i class="flaticon-right-arrow-circular-button"></i>
+			</div>
+			
+			</div>
+		
+
+
+	
+			</div>
+			
+			</div>
+			
+	
+		
+      
+            			 <div id="page2" style="background:url('slider4.png') no-repeat 50%;width:100%;height:100%;background-size:cover;margin:0;" onclick="" class="swiper-slide">
+			
+			
+			<div id="page2fr"  class="bgcontain3">
+			<div style="background:url('listlist.png') no-repeat 50%; width:100px;left:0;right:0;margin-left:auto;margin-right:auto;height:100px;background-size:100px;padding:8px;"></div>
+				<div class="tti" style="margin-top:3px;padding:0% 10%;">
+				<div style="float:left;width:100%;text-align:left;font-size:18px;"><img style="width:35px;margin-right:10px;vertical-align:middle;" src="dial.png"> Choisissez un Produit ou Service</div>
+				<div style="float:left;width:100%;text-align:left;margin-top:7px;font-size:18px;"><img style="width:35px;margin-right:10px;vertical-align:middle;" src="cart.png"> Ajoutez le au panier</div>
+	<div style="float:left;width:100%;text-align:left;margin-top:7px;margin-bottom:8px; font-size:18px;"><img style="width:35px;margin-right:10px;vertical-align:middle;" src="cart2.png">Passez votre Commande
+		
+		<br/>
+	<div style="margin-top:20px;" class="swiper-button-next activeo btsuivant tti2" >
+			Suivant <i class="flaticon-right-arrow-circular-button"></i>
+			</div>
+	
+	</div>
+	
+<br/>
+
+			
+			</div>
+
+
+	
+			</div>
+			
+			
+			
+			  </div>
+			  
+			  	 <div id="page4" style="background:url('slider3.jpg') no-repeat 50%;width:300px;height:100%;background-size:cover;margin:0;" onclick="" class="swiper-slide">
+			
+			
+			<div class="bgcontain3">
+			<div style="background:url('sml.png') no-repeat 50%; width:90px;left:0;right:0;margin-left:auto;margin-right:auto;height:90px;background-size:90px;padding:8px;"></div>
+				<div id="page1fr" class="tti" style="padding:3% 10%;">
+Aujourd'hui, profiter encore plus de votre ville verte et passez plus de temps avec votre Famille !<br/><br/> 
+<br/>
+<div style="margin-top:20px;" class="swiper-button-next activeo btsuivant tti2">
+			S'inscrire <i class="flaticon-right-arrow-circular-button"></i>
+			</div>
+			
+			</div>
+		
+
+
+	
+			</div>
+			
+			</div>
+			
+			
+						            			 <div id="page3" style="padding-bottom:150px;background-color:white;overflow:auto;" onclick="" class="swiper-slide">
+			
+
+			<div style="position:absolute;width:100%;height:100%;left:0;right:0;margin-left:auto;margin-right:auto;color:gray;font-size:15px;text-align:center;">
+			<div class="logo33"><img style="width:50px;margin-bottom:10px;" class="imglogo" src="usir.png"><br/>
+			<span style="font-size: 23px;font-family: 'Kaushan Script', cursive, cursive;line-height:16px;color:white;">Inscrivez-Vous</span>
+			</div>
+				<br/>
+			<div role="main" style="text-align:left;'Exo 2', sans-serif !important" class="ui-content">
+	<div class="jelly-form" style="width:100%;margin-top:5px !important;">
+	<label>Nom & Prénom</label><br/>
+
+    <input onclick="biza('nom')" type="text" id="nom" style="border-radius:0px !important;" placeholder="">
+</div>
+
+<div class="jelly-form" style="width:100%">
+	<label>Email</label><br/>
+    <input onclick="biza('email')" type="text" id="email" style="border-radius:0px !important;" placeholder="">
+</div>
+<div class="jelly-form" style="width:100%">
+	<label>Mot de passe</label><br/>
+    <input onclick="biza('password')" type="text" id="password" style="border-radius:0px !important;" placeholder="">
+</div>
+
+
+<div class="jelly-form" style="width:100%">
+	<label>N° Telephone</label><br/>
+    <input onclick="biza('tel')" type="text" id="tel" style="border-radius:0px !important;" placeholder="">
+</div>
+
+
+<label style="margin:40px 0px 20px 0px" id="choixc" class="top-label">Choisissez votre Résidence</label>
+    <input type="hidden" value="" id="popo">
+    <input id="how-friend" name="how" onclick="$('#popo').val('Green Town')" type="radio">
+    <label for="how-friend" onclick="$('#popo').val('Green Town')" class="side-label">Green Town</label>
+
+    <input id="how-internet" onclick="$('#popo').val('Serena')" name="how" type="radio">
+    <label for="how-internet" onclick="$('#popo').val('Serena')" class="side-label">Serena</label>
+
+    <input id="how-other" name="how" onclick="$('#popo').val('California')" type="radio">
+    <label for="how-other" onclick="$('#popo').val('California')" class="side-label">California</label>
+    
+	 <input id="how-other2" name="how" onclick="$('#popo').val('Prestigia')" type="radio">
+    <label for="how-other2" onclick="$('#popo').val('Prestigia')" class="side-label">Prestigia</label>
+
+   <label style="margin-top:30px;" class="top-label2">
+   <div style="border-bottom-left-radius: 4px;border-top-left-radius: 4px;" onclick="choixbien('reda1','Appartement')" class="reda1">Appartement</div>
+   <div style="margin-left:-1px;border-bottom-right-radius: 4px;border-top-right-radius: 4px;" onclick="choixbien('reda2','Villa')" class="reda2">Villa</div>
+   <input type="hidden" value="" id="choixbien">
+   </label>
+   
+  <div style="margin-top:135px;">
+   <div id="numero1" class="jelly-form" style="display:none;width:100%;">
+	<label>N° Immeuble</label><br/>
+    <input onclick="biza2('emailo')" type="text" id="emailo" style="border-radius:0px !important;" placeholder="">
+</div>
+
+
+
+
+   <div id="numero2" class="jelly-form" style="display:none;width:100%">
+	<label>N° Villa / Appartement</label><br/>
+    <input onclick="biza2('nappart')" type="text" id="nappart" style="border-radius:0px !important;" placeholder="">
+</div>
+</div>
+
+			<div style="text-align:center;margin-top:35px;margin-bottom: 50px;padding-bottom:100px;float:left;margin-left:auto;margin-right:auto;width:100%;left:0;right:0;">
+	<div onclick="ajouter()" style="margin-top:20px;margin-bottom:8px;" class="swiper-button-next activeo btsuivant2 tti2">
+			<i class="flaticon-success"></i> S'inscrire <span class="glyphicon glyphicon-menu-right"></span>
+			</div>
+			<span style="font-size: 15px;color:grey;line-height:20px;text-align:center">* En acceptant les conditions vous comfirmez avoir lu les règles générales  </span>
+		</div>
+	</div>
+			</div>
+
+
+	
+
+			
+			</div>
+			
+			
+           
+      
+		
+		 <div class="swiper-pagination"></div>
+	
+    </div>
+
+    <!-- Swiper JS -->
+
+    <script src="js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+      <script>
+	  
+    var swiper = new Swiper('.swiper-container', {
+	pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 1,
+       
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    </script>
+
+	 <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+	<script src="ripink.js"></script>
+        <script>
+            ripink.apply("activeo", "hsl(100 , 40%, 80%)");
+        </script>
+
+	</body>
+	</html>
