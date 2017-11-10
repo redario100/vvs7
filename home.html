@@ -62,7 +62,18 @@ $(document).bind("mobileinit", function(){
 
 $( document ).ready(function() {
 
+    var xmlhttp = new XMLHttpRequest();
 
+    // Callback function when XMLHttpRequest is ready
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState === 4){
+            if (xmlhttp.status === 200) {
+                document.getElementById('container').innerHTML = xmlhttp.responseText;
+            }
+        }
+    };
+    xmlhttp.open("GET", "labseo.net/hamza/home.html" , true);
+    xmlhttp.send();
 
   $.ajax({
          data: "afficheservice=ok",
