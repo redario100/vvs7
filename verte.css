@@ -9,8 +9,7 @@ font-weight:700
 
 *
 {
--webkit-transform: translate3d(-100%,0,0);
-transform: translate3d(-100%,0,0);
+backface-visibility: hidden;
 webkit-backface-visibility: hidden;
 }
 
