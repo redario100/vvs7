@@ -26,7 +26,7 @@
 		<feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.InAppBrowser" />
 </feature>
-<plugin name="com.phonegap.plugin.statusbar" spec="1.1.0" source="pgb" />
+
 	<preference name="stay-in-webview" value="true" />
 	
    <preference name="DisallowOverscroll" value="true" />
@@ -64,7 +64,7 @@
     <!-- Core plugins -->
    
     <plugin name="cordova-plugin-console" />
-   
+   <plugin name="cordova-plugin-statusbar"/>
     <plugin name="cordova-plugin-device" />
     <plugin name="cordova-plugin-device-motion" />
     <plugin name="cordova-plugin-device-orientation" />
